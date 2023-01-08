@@ -30,22 +30,6 @@ export class PocketbaseService {
         return this.pocketbase.authStore.isValid;
     }
 
-    async saveTest(userModel: any, expectedModel: any) {
-        if (this.isSignedIn()) {
-            let authStoreModel = this.pocketbase.authStore.model;
-            let user = "";
-            if (authStoreModel) {
-                user = authStoreModel.id;
-            }
-            const data = {
-                "user_model": userModel,
-                "expected_model": expectedModel,
-                "user_id": user
-            }
-            await this.pocketbase.collection('test').create(data);
-        }
-    }
-
     async signOut() {
         await this.pocketbase.authStore.clear();
     }
