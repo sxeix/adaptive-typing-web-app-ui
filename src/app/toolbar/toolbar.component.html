@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <!-- <button mat-menu-item>Statistics</button> -->
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    <span>Adaptive Typing</span>
+    <span class="example-spacer"></span>
+    <a class="clickable" href="https://github.com/sxeix/adaptive-typing-web-app-ui/" target="_blank">
+        <button mat-icon-button>
+            <mat-icon>code</mat-icon>
+        </button>
+    </a>
+</mat-toolbar>
