@@ -13,8 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 
@@ -23,7 +27,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     MatInputModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatProgressBarModule,
+    MatToolbarModule,
+    MatMenuModule,
     FormsModule
   ],
   providers: [],

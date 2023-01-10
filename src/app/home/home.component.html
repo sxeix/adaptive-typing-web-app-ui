@@ -1,1 +1,25 @@
-<button class="action" (click)="logout()" mat-raised-button color="primary">Logout</button>
+<app-toolbar></app-toolbar>
+
+<div class="test-area">
+    <div class="test-words round-corners">
+        <div class="test-word" *ngFor="let word of wordset; let i = index" attr.id="{{i}}"
+            [style.color]="getColour(i)">
+            {{word}}
+        </div>
+    </div>
+    <div class="test-inputs">
+        <!-- <input type="text" mdInput [(ngModel)]="inputWord" class="test-input" (keydown.Space)="onSpace()"> -->
+        <mat-form-field class="test-input">
+            <mat-label>Type words here...</mat-label>
+            <input matInput [(ngModel)]="inputWord"  (keydown.Space)="onSpace()">
+        </mat-form-field>
+        <button class="action" (click)="refreshWordset()" mat-raised-button color="primary">Restart</button>
+        <div class="progress-bar">
+            <mat-progress-bar
+                color="primary"
+                mode="determinate"
+                [value]="progressBar">
+            </mat-progress-bar>
+        </div>
+    </div>
+</div>
