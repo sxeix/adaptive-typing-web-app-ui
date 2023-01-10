@@ -7,13 +7,13 @@
         <mat-card-content>
             <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
-                <input [(ngModel)]="username" matInput>
+                <input [(ngModel)]="username" matInput required>
             </mat-form-field>
         </mat-card-content>
         <mat-card-content>
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'">
+                <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'" required minlength="8">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
@@ -22,13 +22,14 @@
         <mat-card-content>
             <mat-form-field appearance="fill">
                 <mat-label>Confirm Password</mat-label>
-                <input [(ngModel)]="confirmPassword" matInput [type]="confirmHide ? 'password' : 'text'">
+                <input [(ngModel)]="confirmPassword" matInput [type]="confirmHide ? 'password' : 'text'" required minlength="8">
                 <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions align="end">
+            <button class="action" (click)="backToLogin()" mat-raised-button color="basic">Back to login</button>
             <button class="action" (click)="createAccount()" mat-raised-button color="primary">Create Account</button>
         </mat-card-actions>
     </mat-card>
