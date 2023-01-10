@@ -20,6 +20,17 @@ export class LoginComponent {
 
 
     login() {
+        if (this.username === '' || this.password === '') {
+            this._snackBar.open("Credentials cannot be empty", "Close", {
+                duration: 3000
+            });
+            return;
+        } else if (this.password.length < 8) {
+            this._snackBar.open("Passwords must be more than 8 characters", "Close", {
+                duration: 3000
+            });
+            return;
+        }
         this.pocketBaseService.signIn(this.username, this.password).then(
             response => {
                 if (this.pocketBaseService.isSignedIn()) {

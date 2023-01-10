@@ -21,8 +21,23 @@ export class CreateAccountComponent {
     ngOnInit(): void {
     }
 
+    backToLogin() {
+        this.router.navigate(['']);
+    }
+
 
     createAccount() {
+        if (this.password !== this.confirmPassword) {
+            this._snackBar.open("Passwords do not match", "Close", {
+                duration: 3000
+            });
+            return;
+        } else if (this.password.length < 8) {
+            this._snackBar.open("Passwords must be more than 8 characters", "Close", {
+                duration: 3000
+            });
+            return;
+        }
         this.pocketBaseService.createUser(this.username, this.password, this.confirmPassword).then(
             response => {
                 this.router.navigate([''])
@@ -30,7 +45,7 @@ export class CreateAccountComponent {
         ).catch((exception) => {
             this._snackBar.open("Error creating account.", "Close", {
                 duration: 3000
-              });
+            });
         })
     }
 }
